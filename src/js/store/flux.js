@@ -1,16 +1,18 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
+			contacts: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					name: "uno",
+					phone: "1111",
+					email: "white",
+					address: "",
 				},
 				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
+					name: "SECOND",
+					phone: "2222",
+					email: "whitjje",
+					address: "",
 				}
 			]
 		},
@@ -30,13 +32,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//we have to loop the entire demo array to look for the respective index
 				//and change its color
-				const demo = store.demo.map((elm, i) => {
+				const demo = store.contacts.map((elm, i) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
 
 				//reset the global store
-				setStore({ demo: demo });
+				setStore({ contacts: demo });
 			}
 		}
 	};
