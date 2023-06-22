@@ -2,12 +2,14 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
-import  Home  from "./views/home";
-import  Contacts  from "./views/contacts";
+import { Home } from "./views/home";
+import { Demo } from "./views/demo";
+
+import ContactList from "./views/ContactList.jsx";
 import injectContext from "./store/appContext";
 
 // import { Navbar } from "./component/navbar";
-
+// import { Footer } from "./component/footer";
 
 //create your first component
 const Layout = () => {
@@ -19,15 +21,14 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				
-					
+					{/* <Navbar /> */}
 					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/home" element={<Home />} />
-						<Route path="/contacts" element={<Contacts />} />
+					<Route path="/" element={<ContactList />} />
+						<Route path="/contactlist" element={<ContactList />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
-				
-				
+					{/* <Footer /> */}
+			
 			</BrowserRouter>
 		</div>
 	);
