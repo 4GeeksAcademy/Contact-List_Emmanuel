@@ -111,7 +111,7 @@ const ContactForm = ({ isOpen, onClose }) => {
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-dark bx bx-flashing-hover"
               data-bs-dismiss="modal"
               onClick={onClose}
             >
@@ -119,10 +119,10 @@ const ContactForm = ({ isOpen, onClose }) => {
             </button>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-dark bx bx-flashing-hover"
               onClick={handleSave}
             >
-              Save
+              Add
             </button>
           </div>
         </div>

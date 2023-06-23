@@ -1,0 +1,30 @@
+body {
+    background-image: url(https://images.unsplash.com/photo-1580655653885-65763b2597d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bG9zJTIwYW5nZWxlc3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; 
+    background-attachment: fixed;
+    color: white;
+    z-index: -1;
+    backdrop-filter: blur(3px);
+    text-align: center;
+    
+    
+}
+
+.modal-content,.card{
+    background-color: rgba(0, 0, 0, 0.771);
+    border: 1px solid white;
+    border-radius: 15px;
+    margin-top: 50px;
+    backdrop-filter: blur(50px);
+}
+.inputSearch{
+    background-color: rgba(0, 0, 0, 0.565);
+    backdrop-filter: blur(3px);
+    color: white;
+}
+
+
+
+

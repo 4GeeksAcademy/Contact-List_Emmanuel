@@ -2,6 +2,7 @@ import React from 'react';
 import { Context } from '../store/appContext';
 import { useContext } from 'react';
 
+
 const ContactCard = ({ contact, onEdit }) => {
 
   const { actions } = useContext(Context)
@@ -17,10 +18,10 @@ const ContactCard = ({ contact, onEdit }) => {
 
 
   return (
-    <div className="card col-md-12 mb-12">
+    <div className="card col-md-12 mb-5">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Contact" className="img-fluid ms-5 mt-3 mb-3" style={{ height: "200px" }} />
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Contact" className="img-fluid ms-5 mt-3 mb-3 bx bx-tada-hover" style={{ height: "200px" }} />
         </div>
         <div className="col-md-6 text-start">
           <div className="card-body">
@@ -37,11 +38,11 @@ const ContactCard = ({ contact, onEdit }) => {
           </div>
         </div>
         <div className="col-md-2 card-footer d-flex justify-content-center align-items-center">
-            <button className="btn btn-primary me-2" onClick={()=>handlerOnEdit(id)}>
-              <box-icon type='solid' name='pencil'></box-icon>
+            <button className="btn btn-light bg-transparent  me-2" onClick={()=>handlerOnEdit(id)}>
+              <box-icon class='bx  bx-tada-hover' color="white" type='solid' name='pencil'></box-icon>
               </button>
-            <button className="btn btn-danger" onClick={()=>actions.onDelete(id)}>
-            <box-icon type='solid' name='trash-alt'></box-icon>
+            <button className="btn btn-light bg-transparent" onClick={()=>actions.onDelete(id)}>
+            <box-icon class='bx bx-tada-hover' color="white" type='solid' name='trash-alt'></box-icon>
               </button>
         </div>
       </div>

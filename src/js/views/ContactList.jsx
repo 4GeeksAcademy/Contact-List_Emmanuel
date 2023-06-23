@@ -28,12 +28,12 @@ const ContactList = () => {
   return (
     <div className="container">
       <h1>Contact List</h1>
-      <h5>ESCRIBE EL NOMBRE DE TU LISTA</h5>
-      <input type="text" value={store.agendaGlobal} onChange={ (e) => actions.changeAgendaSlug(e.target.value)} />
-      <h6>Si tu lista no existe, dale un nombre y agregá tus contactos.</h6>
+      <h5>Search Contact List</h5>
+      <input type="text" className='inputSearch' value={store.agendaGlobal} onChange={ (e) => actions.changeAgendaSlug(e.target.value)} />
+      <h6>Make your own list and add contacts to it</h6>
       <button
         type="button"
-        className="btn btn-success mb-3 d-flex"
+        className="btn btn-dark mb-3 d-flex mx-auto bx bx-flashing-hover"
         onClick={openModal}
       >
         Add New Contact
