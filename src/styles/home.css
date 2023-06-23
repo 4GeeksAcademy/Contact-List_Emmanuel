@@ -8,10 +8,16 @@ body {
     z-index: -1;
     backdrop-filter: blur(3px);
     text-align: center;
-    
-    
+    font-family: 'Lobster', cursive !important;
+    font-size: 25px;
 }
 
+h1{
+    font-size: 70px;
+}
+h5,h6{
+    font-size: 30px;
+}
 .modal-content,.card{
     background-color: rgba(0, 0, 0, 0.771);
     border: 1px solid white;
@@ -25,6 +31,7 @@ body {
     color: white;
 }
 
-
-
-
+.btn{
+    font-family: 'Lobster', cursive !important;
+    font-size: 25px;
+}

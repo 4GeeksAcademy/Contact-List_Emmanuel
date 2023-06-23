@@ -33,11 +33,9 @@ const ContactList = () => {
       <h6>Make your own list and add contacts to it</h6>
       <button
         type="button"
-        className="btn btn-dark mb-3 d-flex mx-auto bx bx-flashing-hover"
+        className="btn btn-dark mb-3 mx-auto bx bx-flashing-hover"
         onClick={openModal}
-      >
-        Add New Contact
-      </button>
+        >Add New Contact</button>
 
       <div className="column">
         {store.agenda.map((contact, index) => (
