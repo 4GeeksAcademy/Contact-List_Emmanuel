@@ -38,3 +38,13 @@ h5,h6{
  .container{
     margin-bottom: 100px;
  }
+
+ .bx-tada:hover{
+    color: red;
+ }
+ img{
+    border-radius: 50%;
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+ }

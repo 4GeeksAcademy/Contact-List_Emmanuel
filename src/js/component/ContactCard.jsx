@@ -21,7 +21,7 @@ const ContactCard = ({ contact, onEdit }) => {
     <div className="card col-md-12 mb-5">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Contact" className="img-fluid  mt-3 mb-3 bx bx-tada-hover" style={{ height: "200px" }} />
+          <img src="https://media.admagazine.com/photos/637d11a6e63c8afac40e7a01/16:9/w_2560%2Cc_limit/1442809583" alt="Contact" className="img-fluid  mt-3 mb-3 bx bx-tada-hover" style={{ height: "200px" }} />
         </div>
         <div className="col-md-6 text-start">
           <div className="card-body">
