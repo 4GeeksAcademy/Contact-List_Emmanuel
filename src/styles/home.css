@@ -20,9 +20,8 @@ h5,h6{
 }
 .modal-content,.card{
     background-color: rgba(0, 0, 0, 0.771);
-    border: 1px solid white;
     border-radius: 15px;
-    margin-top: 50px;
+    margin-top: 20px;
     backdrop-filter: blur(50px);
 }
 .inputSearch{
@@ -34,4 +33,8 @@ h5,h6{
 .btn{
     font-family: 'Lobster', cursive !important;
     font-size: 25px;
+    border: 0px;
 }
+ .container{
+    margin-bottom: 100px;
+ }

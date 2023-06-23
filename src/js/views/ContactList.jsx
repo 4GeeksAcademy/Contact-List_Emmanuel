@@ -9,9 +9,9 @@ const ContactList = () => {
   const { store, actions } = useContext(Context)
 
 
-  useEffect(()=>{
-      actions.getAgenda()
-  },[store.agendaGlobal]);
+   useEffect(()=>{
+       actions.getAgenda()
+   },[]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,9 +28,9 @@ const ContactList = () => {
   return (
     <div className="container">
       <h1>Contact List</h1>
-      <h5>Search Contact List</h5>
-      <input type="text" className='inputSearch' value={store.agendaGlobal} onChange={ (e) => actions.changeAgendaSlug(e.target.value)} />
-      <h6>Make your own list and add contacts to it</h6>
+      {/* <h5>Search Contact List</h5>
+      <input type="text" className='inputSearch' value={store.agendaGlobal} onChange={ (e) => actions.changeAgendaSlug(e.target.value)} /> */}
+      {/* <h6>Make your own list and add contacts to it</h6> */}
       <button
         type="button"
         className="btn btn-dark mb-3 mx-auto bx bx-flashing-hover"
@@ -40,7 +40,7 @@ const ContactList = () => {
       <div className="column">
         {store.agenda.map((contact, index) => (
           <ContactCard
-            photo="https://img.freepik.com/iconos-gratis/usuario_318-563642.jpg"
+            photo="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
             key={index}
             contact={contact}
             onDelete={() => deleteContact(index)}
