@@ -6,15 +6,36 @@ body {
     background-attachment: fixed;
     color: white;
     z-index: -1;
-    backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(3px); */
     text-align: center;
     font-family: 'Lobster', cursive !important;
     font-size: 25px;
 }
+.focusCard:hover{
+    transition: 0.5s;
+    transform:scale(110%);
 
+}
+.focusCard{
+    transition: 0.5s;
+
+}
+.add:hover{
+    color:rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.549);
+    transition: 0.5s;
+    transform:scale(200%);
+    backdrop-filter: blur(5px);
+}
 h1{
     font-size: 70px;
+    transition: 0.5s;
 }
+h1:hover{
+    transform: scale(150%);
+    transition: 0.5s;
+}
+
 h5,h6{
     font-size: 30px;
 }
@@ -22,7 +43,7 @@ h5,h6{
     background-color: rgba(0, 0, 0, 0.771);
     border-radius: 15px;
     margin-top: 20px;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(5px);
 }
 .inputSearch{
     background-color: rgba(0, 0, 0, 0.565);
@@ -34,14 +55,21 @@ h5,h6{
     font-family: 'Lobster', cursive !important;
     font-size: 25px;
     border: 0px;
+    background-color: black;
+    transition: 0.5s;
 }
  .container{
     margin-bottom: 100px;
  }
+ 
+h2{
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(3px);
+    width: 70%;
+    margin: auto;
+}
 
- .bx-tada:hover{
-    color: red;
- }
  img{
     border-radius: 50%;
     width: 200px;

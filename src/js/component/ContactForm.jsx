@@ -12,24 +12,22 @@ const ContactForm = ({ isOpen, onClose }) => {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
 
-  useEffect(()=>{
-    actions.changeAgendaSlug(store.agendaGlobal)
-  },[store.agenda]);
+ 
 
   const handleSave = () => {
 
     const newContact = {
       full_name,
       email,
-      agenda_slug: store.agendaGlobal,
+      agenda_slug: store.myList,
       address,
       phone,
     };
 
-    if(!store.idToUpdate){
-      actions.onAddContact(newContact)
+    if(!store.idNumber){
+      actions.addNewContact(newContact)
     }else{
-      actions.onEditContact(newContact)
+      actions.editExistingContact(newContact)
     };
     setFull_Name('');
     setEmail('');
@@ -111,7 +109,7 @@ const ContactForm = ({ isOpen, onClose }) => {
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-dark bx bx-flashing-hover"
+              className="btn btn-dark add bx bx-flashing-hover"
               data-bs-dismiss="modal"
               onClick={onClose}
             >
@@ -119,7 +117,7 @@ const ContactForm = ({ isOpen, onClose }) => {
             </button>
             <button
               type="button"
-              className="btn btn-dark bx bx-flashing-hover"
+              className="btn add btn-dark bx bx-flashing-hover"
               onClick={handleSave}
             >
               Add

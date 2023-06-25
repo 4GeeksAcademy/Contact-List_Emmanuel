@@ -1,28 +1,48 @@
-import { useState } from "react";
-
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			agenda: [],
-			agendaGlobal: "Emmanuel",
-			idToUpdate: "",
+			contacts: [],
+			myList: "Emmanuel",
+			idNumber: "",
 		},
 		actions: {
-			getAgenda: async () => {
+			getContacts: async () => {
 				try{
 					const store = getStore()
-					const result = await fetch(`https://assets.breatheco.de/apis/fake/contact/agenda/${store.agendaGlobal}`)
+					const result = await fetch(`https://assets.breatheco.de/apis/fake/contact/agenda/${store.myList}`)
 					const data = await result.json()
 
-					setStore({agenda: data})
+					setStore({contacts: data})
 					
-					console.log("API respondió con la agenda: ", data)
+					console.log("Contacts obtained successfully: ", data)
 				}catch(error){
-					console.log("No se pudo recuperar la agenda: ",error)
+					console.log("Error getting contacts: ",error)
 				}
 			},
 
-			onAddContact: async (newContact) => {
+			
+			deleteContact: async (id) => {
+				try{
+
+					const result = await fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`,{
+						method: "DELETE"
+					})
+					if(result.ok){
+						const data = await result.json()
+						console.log("Contact deleted successfully", data)
+						const {getContacts} = getActions()
+						getContacts()
+					}
+					
+
+				}catch(error){
+
+					console.log("Error Contact deleted unsuccessfully",error)
+
+				}
+			},
+
+			addNewContact: async (newContact) => {
 				try{
 					console.log(newContact)
 					const result = await fetch("https://assets.breatheco.de/apis/fake/contact/",{
@@ -36,45 +56,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					
 					if(result.ok){
 						const store = getStore()
-						setStore({...store, agenda: [ ...store.agenda, newContact]})
-						console.log("El contacto fue actualizado en la API",data)
+						setStore({...store, contacts: [ ...store.contacts, newContact]})
+						console.log("Contact uploaded",data)
 					}
 
 				}catch(error){
 
-					console.log("No se pudo subir el nuevo contactoa la API", error)
+					console.log("Error uploading contacts", error)
 
 				}
 
 			},
 
-			changeAgendaSlug: (agendaSlug) => {
-				const store = getStore()
-				setStore({...store,agendaGlobal: agendaSlug})
-			},
-
-			onDelete: async (id) => {
-				try{
-
-					const result = await fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`,{
-						method: "DELETE"
-					})
-					if(result.ok){
-						const data = await result.json()
-						console.log("Se pudo eliminar el contacto", data)
-						const {getAgenda} = getActions()
-						getAgenda()
-					}
-					
-
-				}catch(error){
-
-					console.log("Falla al eliminar contacto",error)
-
-				}
-			},
-
-			onEdit: async (id) => {
+			editContact: async (id) => {
 				try{
 
 					const result = await fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`,{
@@ -83,29 +77,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					if(result.ok){
 						const data = await result.json()
-						console.log("Se pudo eliminar el contacto", data)
-						const {getAgenda} = getActions()
-						getAgenda()
+						console.log("Contact edited successfully", data)
+						const {getContacts} = getActions()
+						getContacts()
 					}
 					
 
 				}catch(error){
 
-					console.log("Falla al eliminar contacto",error)
+					console.log("Contact edited unsuccessfully",error)
 
 				}
 			},
 
 			updateId: async (id) => {
 				const store = getStore()
-				setStore({...store, idToUpdate: id})
+				setStore({...store, idNumber: id})
 			},
 
-			onEditContact : async (newContact) => {
+			editExistingContact : async (newContact) => {
 				try{
 					console.log(newContact)
-					const { idToUpdate } = getStore()
-					const result = await fetch(`https://assets.breatheco.de/apis/fake/contact/${idToUpdate}`,{
+					const { idNumber } = getStore()
+					const result = await fetch(`https://assets.breatheco.de/apis/fake/contact/${idNumber}`,{
 						method: "PUT",
 						body: JSON.stringify(newContact),
 						headers:{
@@ -116,19 +110,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					
 					if(result.ok){
 						const store = getStore()
-						console.log("El contacto fue actualizado en la API",data)
-						const { getAgenda } = getActions()
-						await getAgenda()
-						setStore({...store,idToUpdate: ""})
+						console.log("Contact uploaded",data)
+						const { getContacts } = getActions()
+						await getContacts()
+						setStore({...store,idNumber: ""})
 					}
 
 				}catch(error){
 
-					console.log("No se pudo subir el nuevo contactoa la API", error)
+					console.log("Error uploading contact", error)
 
 				}
 
 			},
+			
 
 		}
 	};
